@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Update Intern Data</h2>
+<form class="update-form" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="{{ intern[1] }}" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="{{ intern[6] }}" required>
+
+    <label for="institution">Institution</label>
+    <input type="text" id="institution" name="institution" value="{{ intern[4] }}" required>
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" required>
+        <option value="Male" {% if intern[4] == 'Male' %}selected{% endif %}>Male</option>
+        <option value="Female" {% if intern[4] == 'Female' %}selected{% endif %}>Female</option>
+    </select>
+
+    <label for="phone_no">Phone No.</label>
+    <input type="text" id="phone_no" name="phone_no" value="{{ intern[2] }}" required>
+
+    <label for="years_of_experience">Years of Experience</label>
+    <input type="number" id="years_of_experience" name="years_of_experience" value="{{ intern[5] }}" required>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Database</h1>
+<div class="statistics-box">
+    <h2>Statistics of the filter</h2>
+    <p>Total Interns: {{ total_interns }}</p>
+    <p>Male Interns: {{ male_interns }}</p>
+    <p>Female Interns: {{ female_interns }}</p>
+    <p>People on Project: {{ people_on_project }}</p>
+</div>
+<form method="POST">
+    <table>
+        <thead>
+            <tr>
+                <th>Name <input type="text" id="name_filter" name="name_filter"></th>
+                <th>Email <input type="text" id="email_filter" name="email_filter"></th>
+                <th>Institution <input type="text" id="institution_filter" name="institution_filter"></th>
+                <th>Sex <input type="text" id="sex_filter" name="sex_filter"></th>
+                <th>Project <input type="text" id="project_filter" name="project_filter"></th>
+                <th>Phone No. <input type="text" id="phone_filter" name="phone_filter"></th>
+                <th>Years of Experience <input type="text" id="experience_filter" name="experience_filter"></th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for intern in interns %}
+            <tr>
+                <td>{{ intern[1] }}</td>
+                <td>{{ intern[2] }}</td>
+                <td>{{ intern[3] }}</td>
+                <td>{{ intern[4] }}</td>
+                <td>{{ intern[5] if intern[5] else 'No project assigned' }}</td>
+                <td>{{ intern[6] }}</td>
+                <td>{{ intern[7] }}</td>
+                <td>
+                    <a href="{{ url_for('update_intern', intern_id=intern[0]) }}">Update</a>
+                    <a href="{{ url_for('delete_intern', intern_id=intern[0]) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Filter</button>
+</form>
+{% endblock %}

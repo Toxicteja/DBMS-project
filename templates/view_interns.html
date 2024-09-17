@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Interns List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Team number</th>
+            <th>Project</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for intern in interns %}
+        <tr>
+            <td>{{ intern[0] }}</td>
+            <td>{{ intern[1] }}</td>
+            <td>{{ intern[2] if intern[2] else 'No project assigned' }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

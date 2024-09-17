@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Intern</h1>
+<form method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your name"><br>
+    <label for="gender">gender:</label>
+    <input type="text" id="gender" name="gender" required placeholder="Enter your gender"><br>
+    <label for="phone_no">Phone Number:</label>
+    <input type="text" id="phone_no" name="phone_no" required placeholder="Enter your contact number"><br>
+    <label for="institution">Institution:</label>
+    <input type="text" id="institution" name="institution" required placeholder="Enter the name of the institution you studied in"><br>
+    <label for="yof">Years of experience:</label>
+    <input type="text" id="yof" name="yof" required placeholder="Enter 0 if no experience"><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email address"><br>
+    <label for="project_id">Project:</label>
+    <select id="project_id" name="project_id" required>
+        {% for project in projects %}
+        <option value="{{ project[0] }}">{{ project[1] }}</option>
+        {% endfor %}
+    </select><br>
+    <button type="submit">Add Intern</button>
+</form>
+{% endblock %}

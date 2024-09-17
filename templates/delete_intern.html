@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Delete Intern Data</h2>
+<p>Are you sure you want to delete the following intern?</p>
+<ul>
+    <li>Name: {{ intern[1] }}</li>
+    <li>Email: {{ intern[2] }}</li>
+    <li>Institution: {{ intern[3] }}</li>
+    <li>Sex: {{ intern[4] }}</li>
+    <li>Phone No.: {{ intern[5] }}</li>
+    <li>Years of Experience: {{ intern[6] }}</li>
+</ul>
+<form method="POST">
+    <button type="submit">Delete</button>
+    <a href="{{ url_for('view_database') }}">Cancel</a>
+</form>
+{% endblock %}
